@@ -1,28 +1,22 @@
 
 function getAdultUsers(users) {
     const isArray = Array.isArray(users);
-    let usersArray;
 
     if (!isArray) {
-
-        //usersArray = Object.entries(users);
-        usersArray = Object.keys(users);
-        console.log(usersArray);
-        return 'объекты не доделаны';
+        const onlyAdultUsers = {};
+        for (const key in users) {
+            if (users[key].age >= 18) {
+                onlyAdultUsers[key] = users[key];
+            }
+        }
+        return onlyAdultUsers;
     }
     else {
-
         const usersArray = users.filter((item) => {
             return item.age >= 18;
         });
-
-
         return usersArray;
     }
-
-
-
-
 }
 
 const usersArray = [
@@ -61,5 +55,5 @@ const usersObject = {
     }
 };
 
-//console.log('usersArray ', getAdultUsers(usersArray));
+console.log('usersArray ', getAdultUsers(usersArray));
 console.log('usersObject ', getAdultUsers(usersObject));
