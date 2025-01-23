@@ -5,8 +5,8 @@ function getRandomNumberInRange(min, max) {
 function getWinner(applicants, winnerObject) {
     const numberWin = getRandomNumberInRange(0, 3);
 
-    const applicantsArray = Object.entries(applicants)[numberWin][1];
-    //console.log('applicants ', applicantsArray);
+    const applicantsArray = Object.values(applicants)[numberWin];
+
     return { ...winnerObject, ...applicantsArray };
 }
 
