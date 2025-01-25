@@ -29,14 +29,14 @@ body {
 }
 
 .resultat {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-top: 20px;
     position: absolute; /* Позиционирование результата */
     top: 20px; /* Размещение вверху */
     left: 50%; /* Центрирование по горизонтали */
     transform: translateX(-50%); /* Точное центрирование */
-    color: black; /* Цвет текста результата */
+    color: rgb(40, 81, 66); /* Цвет текста результата */
 }
 
 .tank-container {

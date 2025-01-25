@@ -1,6 +1,65 @@
+function useAnimationRight() {
+
+    const shotLeft = document.querySelector('.shot-left');
+    const startPosition = shotLeft.getBoundingClientRect().left; // Начальная позиция
+    const endPosition = startPosition + 200; // Конечная позиция (200px вправо)
+    const duration = 15000; // Длительность анимации в миллисекундах
+    const startTime = performance.now(); // Время начала анимации
+
+    function animate(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1); // Прогресс анимации (от 0 до 1)
+
+        // Перемещение элемента
+        shotLeft.style.transform = `translateX(${progress * 1500}px)`;
+
+        // Продолжаем анимацию, пока не достигнем конца
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            // Сбрасываем трансформацию после завершения анимации
+            shotLeft.style.transform = 'translateX(0)';
+        }
+    }
+
+    // Запуск анимации
+    requestAnimationFrame(animate);
+
+}
+
+function useAnimationLeft() {
+
+    const shotRight = document.querySelector('.shot-right');
+    const startPosition = shotRight.getBoundingClientRect().right; // Начальная позиция
+    const endPosition = startPosition + 200; // Конечная позиция (200px вправо)
+    const duration = 15000; // Длительность анимации в миллисекундах
+    const startTime = performance.now(); // Время начала анимации
+
+    function animate(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1); // Прогресс анимации (от 0 до 1)
+
+        // Перемещение элемента
+        shotRight.style.transform = `translateX(${progress * -1500}px)`;
+
+        // Продолжаем анимацию, пока не достигнем конца
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            // Сбрасываем трансформацию после завершения анимации
+            shotRight.style.transform = 'translateX(0)';
+        }
+    }
+
+    // Запуск анимации
+    requestAnimationFrame(animate);
+
+}
+
 function heatEnemy() {
     enemy.health -= 10;
 
+    useAnimationRight();
 
     const rightScore = document.querySelector('.right-score');
     rightScore.innerHTML = enemy.health;
@@ -8,6 +67,8 @@ function heatEnemy() {
 
 function heatHero() {
     hero.health -= 10;
+
+    useAnimationLeft();
 
     const leftScore = document.querySelector('.left-score');
     leftScore.innerHTML = hero.health;
