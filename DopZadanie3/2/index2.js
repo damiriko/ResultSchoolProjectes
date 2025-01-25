@@ -1,22 +1,38 @@
 function heatEnemy() {
     enemy.health -= 10;
+
+
+    const rightScore = document.querySelector('.right-score');
+    rightScore.innerHTML = enemy.health;
 }
 
 function heatHero() {
     hero.health -= 10;
+
+    const leftScore = document.querySelector('.left-score');
+    leftScore.innerHTML = hero.health;
+
+
 }
+
 
 function startGame(heroPlayer, enemyPlayer) {
     let name;
     let health;
 
+    const leftScore = document.querySelector('.left-score');
+    leftScore.innerHTML = heroPlayer.health;
+
+    const rightScore = document.querySelector('.right-score');
+
+    rightScore.innerHTML = enemyPlayer.health;
+
+
     while (heroPlayer.health > 0 && enemyPlayer.health > 0) {
         if (getRandomNumberInRange(0, 1) === 1) {
-            console.log('strike heroPlayer ', heroPlayer);
             heatEnemy();
         }
         else {
-            console.log('strike enemyPlayer ', enemyPlayer);
             heatHero();
         }
     }
@@ -30,8 +46,10 @@ function startGame(heroPlayer, enemyPlayer) {
         health = enemyPlayer.health;
     }
 
+    const Resultat = document.querySelector('.resultat');
+    Resultat.innerHTML = `${name} победил! У него осталось ${health} здоровья`;
 
-    alert(`${name} победил! У него осталось ${health} здоровья`)
+    //alert(`${name} победил! У него осталось ${health} здоровья`)
 }
 
 function getRandomNumberInRange(min, max) {
@@ -39,11 +57,11 @@ function getRandomNumberInRange(min, max) {
 }
 
 const hero = {
-    name: 'Batman',
+    name: 'Leopard',
     health: 100,
 };
 const enemy = {
-    name: 'Joker',
+    name: 'T-34',
     health: 100,
 };
 

@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index2.js" > </script>  
+    <script src="index2.js" defer> </script>  
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS -->
     <title>Доп задания (Объекты и Дата)</title>
 </head>
 <body>
-    
+     <!-- Счет слева -->
+     <div class="score left-score">0</div>
+
+     <!-- Надпись -->
+     <div class="score resultat"></div>
+ 
+     <!-- Счет справа -->
+     <div class="score right-score">0</div>
+ 
+     <!-- Контейнер для танков и выстрелов -->
+     
+     <div class="tank-container">
+         <img src="res/leop.png" alt="Леопард" class="tank left-tank">
+         <img src="res/shotLeft.png" alt="Выстрел левого танка" class="shot shot-left">
+ 
+         <img src="res/t34.png" alt="Т-34" class="tank right-tank">
+         <img src="res/shotRight.png" alt="Выстрел правого танка" class="shot shot-right">
+     </div>
 </body>
 </html>

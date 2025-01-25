@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    position: relative; /* Для позиционирования счета и выстрелов */
+}
+
+.score {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px;
+    color: red; /* Красный цвет для счета */
+}
+
+.left-score {
+    align-self: flex-start;
+}
+
+.right-score {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 20px; /* Отступ сверху */
+    right: 20px; /* Отступ справа */
+}
+
+.resultat {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    position: absolute; /* Позиционирование результата */
+    top: 20px; /* Размещение вверху */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Точное центрирование */
+    color: black; /* Цвет текста результата */
+}
+
+.tank-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Для позиционирования выстрелов */
+}
+
+.tank {
+    width: 500px; /* Увеличиваем размер танков */
+    height: auto;
+}
+
+.shot {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    display: block; /* Делаем выстрелы видимыми */
+    bottom: 100px; /* Высота выстрелов на уровне танков */
+}
+
+.shot-left {
+    left: 550px; /* Позиция выстрела левого танка */
+    bottom: 150px;
+}
+
+.shot-right {
+    right: 550px; /* Позиция выстрела правого танка */
+    bottom: 150px;
+}
+
+.left-tank {
+    align-self: flex-end;
+}
+
+.right-tank {
+    align-self: flex-end;
+}
