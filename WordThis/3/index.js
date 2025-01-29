@@ -1,6 +1,6 @@
 const footballer = {
     fullName: 'Cristiano Ronaldo',
-    attack: () => {
+    attack: function () {
         console.log(`${this.fullName} сейчас с мячом и начинает атаку!`);
     },
     scoreGoal(sound) {
@@ -15,9 +15,14 @@ const footballer = {
     }
 };
 
-const attack = footballer.attack;
-const score = footballer.scoreGoal;
-const substitute = footballer.goToSubstitution;
+const attack = footballer.attack.bind(footballer);
 attack();
-score('Сиииии');
-substitute('Paulo Dibala');
+
+
+const score = footballer.scoreGoal;
+score.call(footballer, 'Сиииии');
+
+const substitute = footballer.goToSubstitution;
+substitute.apply(footballer, ['Paulo Dibala']);
+
+
