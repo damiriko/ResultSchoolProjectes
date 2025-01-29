@@ -5,7 +5,10 @@ class Dictionary {
     }
 
     add(word, description) {
-        this.words[word] = description;
+        this.words[word] = {
+            word: word,
+            description: description
+        }
     }
 
     remove(word) {
