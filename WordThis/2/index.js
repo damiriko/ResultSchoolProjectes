@@ -15,16 +15,23 @@ const bird = {
 }
 
 
-
 function makeDomestic(isDomestic) {
-    // Твоя реализация
+
+    alert(`${this.type} по имени ${this.name} говорит ${this.makeSound()}`);
+    return {
+        name: this.name,
+        type: this.type,
+        isDomestic: isDomestic,
+        makeSound: this.makeSound()
+    };
 }
 
 
-makeDomestic.bind(dog, true)();
-// Вернет объект: {name: 'Чарли', type: 'Собака', isDomestic: true, makeSound: ƒ}
-// И выведет сообщение: "Собака по имени Чарли говорит Гав-Гав"
+console.log('bind ', makeDomestic.bind(dog, true)());
+console.log('bind ', makeDomestic.bind(bird, false)());
 
-makeDomestic.call(bird, false);
-// Вернет объект: {name: 'Петя', type: 'Воробей', isDomestic: false, makeSound: ƒ}
-// И выведет сообщение: "Воробей по имени Петя говорит Чик-чирик"
+console.log('call ', makeDomestic.call(dog, true));
+console.log('call ', makeDomestic.call(bird, false));
+
+console.log('apply ', makeDomestic.apply(dog, [true]));
+console.log('apply ', makeDomestic.apply(bird, [false]));
