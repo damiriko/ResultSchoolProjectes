@@ -86,7 +86,8 @@ const textButtonAddTask =
         </button>
       </form>`;
 
-tasksList.insertAdjacentHTML("afterend", textButtonAddTask);
+//tasksList.insertAdjacentHTML("afterend", textButtonAddTask);
+tasksList.insertAdjacentHTML("afterbegin", textButtonAddTask);
 // #endregion
 
 
@@ -116,7 +117,6 @@ function createNewTask(event) {
 
     addServiceField(newTask);
 }
-
 
 // #endregion
 
