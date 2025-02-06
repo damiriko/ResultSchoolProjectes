@@ -24,10 +24,9 @@ newBody.innerHTML = textForm;
 // #region 2 способ
 newBody.innerHTML += `</br></br></br> <b>второй способ</b> </br></br>`;
 
-
 const newForm = document.createElement('form');
 newForm.className = "create-user-form";
-
+// #region  ----
 //---------
 const labelNameUser = document.createElement('label');
 labelNameUser.textContent = "Имя";
@@ -53,6 +52,6 @@ const button = document.createElement('button');
 button.textContent = "Подтвердить";
 button.type = "submit";
 newForm.append(button);
-
+// #endregion
 newBody.append(newForm);
 // #endregion
