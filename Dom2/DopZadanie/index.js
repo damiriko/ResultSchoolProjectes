@@ -1,11 +1,19 @@
-
 // #region Dom2_DopZadanie
-
 class CustomSelect {
+
+    #currentSelectedOption = null;
+
     constructor(id, options) {
         this.id = id;
         this.options = options;
     };
+
+    get selectedValue() {
+        return this.#currentSelectedOption;
+    }
+    set selectedValue(value) {
+        this.#currentSelectedOption = value;
+    }
 
     render(container) {
 
@@ -39,8 +47,9 @@ class CustomSelect {
     }
 
 
-}
 
+}
+// #region Init
 const options = [
     { value: 1, text: 'JavaScript' },
     { value: 2, text: 'NodeJS' },
@@ -52,12 +61,11 @@ const options = [
 const customSelect = new CustomSelect('123', options);
 const mainContainer = document.querySelector('#container');
 customSelect.render(mainContainer);
+// #endregion
 
 const openclose = document.querySelector(".select-dropdown__button");
-
 openclose.addEventListener('click', () => {
     //Список открыт, когда у элемента с тегом <ul> есть класс "active"
-
     const ulSelectDropdown = document.querySelector(".select-dropdown__list");
     if (ulSelectDropdown.classList.contains("active")) {
         ulSelectDropdown.classList.remove("active");
@@ -66,5 +74,25 @@ openclose.addEventListener('click', () => {
         ulSelectDropdown.classList.add("active");
     }
 })
+
+const ulElement = document.querySelector(".select-dropdown__list");
+ulElement.addEventListener('click', (event) => {
+    const li = event.target.closest(".select-dropdown__list-item");
+    if (li) {
+
+        document.querySelectorAll(".select-dropdown__list-item").forEach(item => {
+            item.classList.remove("selected");
+        });
+        li.classList.add("selected");
+
+        customSelect.selectedValue = li.dataset.value;
+
+        const selectField = options.find(el => String(el.value) === customSelect.selectedValue);
+
+        const spanSelect = document.querySelector(".select-dropdown__text");
+        spanSelect.textContent = selectField.text;
+
+    }
+});
 
 // #endregion
