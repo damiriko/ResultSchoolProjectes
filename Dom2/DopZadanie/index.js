@@ -92,6 +92,10 @@ ulElement.addEventListener('click', (event) => {
         const spanSelect = document.querySelector(".select-dropdown__text");
         spanSelect.textContent = selectField.text;
 
+        document.querySelectorAll(".select-dropdown__list").forEach(item => {
+            item.classList.remove("active");
+        });
+
     }
 });
 
