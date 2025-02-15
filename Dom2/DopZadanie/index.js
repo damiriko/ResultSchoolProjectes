@@ -80,10 +80,12 @@ ulElement.addEventListener('click', (event) => {
     const li = event.target.closest(".select-dropdown__list-item");
     if (li) {
 
+        //снимаем выделения
         document.querySelectorAll(".select-dropdown__list-item").forEach(item => {
             item.classList.remove("selected");
         });
         li.classList.add("selected");
+
 
         customSelect.selectedValue = li.dataset.value;
 
@@ -92,6 +94,8 @@ ulElement.addEventListener('click', (event) => {
         const spanSelect = document.querySelector(".select-dropdown__text");
         spanSelect.textContent = selectField.text;
 
+
+        //сворачиваем 
         document.querySelectorAll(".select-dropdown__list").forEach(item => {
             item.classList.remove("active");
         });
