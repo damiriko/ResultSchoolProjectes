@@ -8,6 +8,7 @@ function createOneElementOfAlbom(photo) {
     title.innerText = photo.title;
 
     dataContainer.append(title);
+
 }
 
 function outputError(textError) {
